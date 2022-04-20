@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ResultCard from './Components/ResultCard';
+import ResultList from './Components/ResultList';
 import './crud.scss';
 import logo from './Images/movie.svg';
 
@@ -19,7 +20,14 @@ function App() {
         setResults(dataCopy);
       })
       .catch(error => console.log(error)); 
+    } else {
+      setResults([]);
     }
+  }
+
+  const chooseMovie = (e) => {
+    const movie = results.filter(results => results.id === e)
+    console.log(movie);
   }
 
   return (
@@ -29,18 +37,33 @@ function App() {
         <input type='search' name='search' id='search' placeholder='Search for a movie' value={search} onChange={findData}/>
       </div>
 
-      {results.length > 0 && (
-        <div className='results'>
-          {results.map(movie => (
-            <div key={movie.id}>
-              <ResultCard movie={movie}></ResultCard>
-            </div>
-          ))}
-        </div>
-      )}     
+      <div className='movies-list'>
+        {results.length > 0 && (
+          <ul className='results'>
+            {results.slice(0, 8).map(movie => (
+              <li key={movie.id} onClick={chooseMovie}>
+                <ResultList movie={movie}></ResultList>
+              </li>
+            ))}
+          </ul>
+        )}     
+      </div>
+      
+      {/* <ResultCard></ResultCard> */}
 
     </div>
   );
 }
 
 export default App;
+
+
+// {results.length > 0 && (
+//   <div className='results'>
+//     {results.map(movie => (
+//       <div key={movie.id}>
+//         <ResultCard movie={movie}></ResultCard>
+//       </div>
+//     ))}
+//   </div>
+// )}   
