@@ -75,6 +75,9 @@ ul {
         width: 55vw;
         padding: 20px;
         gap: 30px;
+        @media (max-width: 820px) {
+            flex-direction: column;
+        }
         .poster-wrapper img,
         .filler-poster {
             width: 200px;
