@@ -30,6 +30,12 @@ function App() {
     setSelected(movie)
   }
 
+  const close = () => {
+    setSearch('')
+    // setSearch(selected.title)
+    setResults([])
+  }
+
   return (
     <div className='app'>
       <div className='search'>
@@ -38,15 +44,15 @@ function App() {
       </div>
 
       <div className='movies-list'>
-        {results.length > 0 && (
-          <ul className='results'>
-            {results.slice(0, 8).map(movie => (
+        <ul className='results' onClick={close}>
+          {results.length > 0 ? 
+            results.slice(0, 8).map(movie => (
               <li key={movie.id}>
                 <ResultList movie={movie} selectedMovie={selectedMovie}></ResultList>
               </li>
-            ))}
-          </ul>
-        )}     
+            ))
+          : ''}     
+        </ul>
       </div>
       
       {
@@ -58,14 +64,3 @@ function App() {
 }
 
 export default App;
-
-
-// {results.length > 0 && (
-//   <div className='results'>
-//     {results.map(movie => (
-//       <div key={movie.id}>
-//         <ResultCard movie={movie}></ResultCard>
-//       </div>
-//     ))}
-//   </div>
-// )}   
