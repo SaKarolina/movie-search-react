@@ -8,6 +8,7 @@ function App() {
 
   const [results, setResults] = useState([]);
   const [search, setSearch] = useState('');
+  const [selected, setSelected] = useState('');
 
   const findData = (e) => {
     setSearch(e.target.value);
@@ -25,9 +26,8 @@ function App() {
     }
   }
 
-  const chooseMovie = (e) => {
-    const movie = results.filter(results => results.id === e)
-    console.log(movie);
+  const selectedMovie = (movie) => {
+    setSelected(movie)
   }
 
   return (
@@ -41,15 +41,17 @@ function App() {
         {results.length > 0 && (
           <ul className='results'>
             {results.slice(0, 8).map(movie => (
-              <li key={movie.id} onClick={chooseMovie}>
-                <ResultList movie={movie}></ResultList>
+              <li key={movie.id}>
+                <ResultList movie={movie} selectedMovie={selectedMovie}></ResultList>
               </li>
             ))}
           </ul>
         )}     
       </div>
       
-      {/* <ResultCard></ResultCard> */}
+      {
+        selected && <ResultCard movie={selected}></ResultCard>
+      }
 
     </div>
   );
