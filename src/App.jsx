@@ -3,6 +3,7 @@ import ResultCard from './Components/ResultCard';
 import ResultList from './Components/ResultList';
 import './crud.scss';
 import logo from './Images/movie.svg';
+import logo2 from './Images/tmdb-logo.svg';
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
   }
 
   const close = () => {
-    setSearch('')
+    // setSearch('')
     // setSearch(selected.title)
     setResults([])
   }
@@ -39,13 +40,16 @@ function App() {
   return (
     <div className='app'>
       <div className='search'>
+        <img className='tmdb-logo' src={logo2} alt='tmdb-logo'/>
         <img className='logo' src={logo} alt='logo'/>
-        <input type='search' name='search' id='search' placeholder='Search for a movie' value={search} onChange={findData}/>
+        <input type='search' name='search' id='search' placeholder='Search for a movie' value={search} onChange={findData}
+        //onChange={(event) => {findData(event); setSelected(event.title)}}
+        />
       </div>
 
       <div className='movies-list'>
         <ul className='results' onClick={close}>
-          {results.length > 0 ? 
+          {(results || []).length > 0 ? 
             results.slice(0, 8).map(movie => (
               <li key={movie.id}>
                 <ResultList movie={movie} selectedMovie={selectedMovie}></ResultList>
@@ -58,7 +62,6 @@ function App() {
       {
         selected && <ResultCard movie={selected}></ResultCard>
       }
-
     </div>
   );
 }

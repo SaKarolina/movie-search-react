@@ -11,7 +11,6 @@ body * {
 }
 
 body {
-    // font-family: 'Love Ya Like A Sister', cursive;
     background-color: #fff;
     word-wrap: break-word;
 }
@@ -39,6 +38,12 @@ ul {
         padding: 20px 40px;
         padding-left: 25%;
         box-shadow: 0px 5px 11px -5px rgba(0, 0, 0, 0.373);
+        .tmdb-logo {
+            position: absolute;
+            left: 2vw;
+            width: 3.3em;
+            filter: brightness(100%) saturate(100%) invert(81%) sepia(79%) saturate(2%) hue-rotate(283deg) brightness(160%) contrast(130%);
+        }
         .logo {
             position: absolute;
             padding-left: 12px;
