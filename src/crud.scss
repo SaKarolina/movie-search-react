@@ -90,6 +90,10 @@ ul {
             background-color: #dbdada;
             display: block;
             color: transparent;
+            @media (max-width: 395px) {
+                width: 50vw;
+                height: 40vh;
+            }
         }
         .info {
             display: flex;
