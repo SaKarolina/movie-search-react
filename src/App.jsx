@@ -37,7 +37,7 @@ function App() {
   }
 
   return (
-    <div className='app'>
+    <div className='app' onClick={close}>
       <div className='search'>
         <img className='tmdb-logo' src={logo2} alt='tmdb-logo'/>
         <img className='logo' src={logo} alt='logo'/>
@@ -45,7 +45,7 @@ function App() {
       </div>
 
       <div className='movies-list'>
-        <ul className='results' onClick={close}>
+        <ul className='results' >
           {results.length > 0 ? 
             results.slice(0, 8).map(movie => (
               <li key={movie.id}>
