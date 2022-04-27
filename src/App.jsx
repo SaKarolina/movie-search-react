@@ -13,11 +13,8 @@ function App() {
 
   const findData = (e) => {
     setSearch(e.target.value);
-    if(search.length >= 2) {
-      console.log(search.length);
-      // fetch(`https://api.themoviedb.org/3/search/movie?api_key=9207b7bb9ad666f628ccc02d8fdd966e&language=en-US&query=${e.target.value}`
-      // )
-      fetch(`https://api.themoviedb.org/3/search/movie?api_key=9207b7bb9ad666f628ccc02d8fdd966e&language=en-US&query=${search}`
+    if(e.target.value.length >= 2) {
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=9207b7bb9ad666f628ccc02d8fdd966e&language=en-US&query=${e.target.value}`
       )
       .then(res => res.json())
       .then((data) => {
@@ -25,8 +22,7 @@ function App() {
         setResults(dataCopy);
       })
       .catch(error => console.log(error)); 
-    // } else {
-    } else if (search.length === 0) {
+    } else {
       setResults([]);
     }
   }
@@ -34,7 +30,6 @@ function App() {
   const selectedMovie = (movie) => {
     setSelected(movie);
     setSearch(movie.title);
-    // setResults([]);
   }
 
   const close = () => {
