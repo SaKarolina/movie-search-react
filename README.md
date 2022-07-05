@@ -11,7 +11,7 @@ This project is for **educational** purposes only.
 
 Site published at: https://sakarolina.github.io/movie-search-react/
 
-Design: ![My Image](./Images/img.jpg)
+Design: [My Image](./Images/img.jpg)
 
 ## Project features
 -   REACT
