@@ -8,7 +8,7 @@
 _33 group individual homework project_
 
 This project is for **educational** purposes only.
-Task: create a search the same as in the example.
+Task: create a movie search the same as in the example.
 
 Site published at: https://sakarolina.github.io/movie-search-react/
 
